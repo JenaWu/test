@@ -1,5 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import  {Amplify, API, Auth} from "aws-amplify";
+// import awsExports from "./aws-exports";
+
+const apiName = "apiUrl";
+
+async function getHeaders() {
+  return {
+    headers: {
+      Authorization: `Bearer ${(await Auth.currentSession())
+        .getAccessToken()
+        .getJwtToken()}`,
+    },
+  };
+}
+
+async function load() {
+  //get all devices;
+  let res = [];
+  const headers = await getHeaders();
+  try {
+    res = await API.get(apiName, `/groups/devices`, headers);
+  } catch (err) {
+    console.info("Read devices error:", err);
+  }
+
+  return res;
+}
 
 function App() {
   return (
