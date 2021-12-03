@@ -34,7 +34,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload1231231213212131212121211232.
+          Edit <code>src/App.js</code> and save to reload454564564564564564545465464545.
         </p>
         <a
           className="App-link"
